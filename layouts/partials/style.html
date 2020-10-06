@@ -1,15 +1,42 @@
 <style>
+  :root {
+    --color-brand: #da5f51;
+    --color-fade: #848586;
+    --color-background: #eee0cb;
+    --color-background-alt: #baa898;
+    --color-body-text: #280003;
+    --color-header-text: #da5f51;
+  }
+  @media(prefers-color-scheme: light) {
+    :root {
+      --color-brand: #da5f51;
+      --color-fade: #848586;
+      --color-background: #eee0cb;
+      --color-background-alt: #baa898;
+      --color-body-text: #280003;
+      --color-header-text: #da5f51;
+    }
+  }
+  @media(prefers-color-scheme: dark) {
+    :root {
+      --color-background: #280003;
+      --color-background-alt: #da5f51;
+      --color-body-text: #eee0cb;
+      --color-header-text: #da5f51;
+    }
+  }
+
   body {
-    font-family: Verdana, sans-serif;
+    font-family: sans-serif;
     margin: auto;
     padding: 20px;
     max-width: 720px;
     text-align: left;
-    background-color: #fff;
+    background-color: var(--color-background);
     word-wrap: break-word;
     overflow-wrap: break-word;
     line-height: 1.5;
-    color: #444;
+    color: var(--color-body-text);
   }
 
   h1,
@@ -20,21 +47,40 @@
   h6,
   strong,
   b {
-    color: #222;
+    color: var(--color-header-text);
   }
 
   a {
-    color: #3273dc;
-    /*color: #ff5e6c;*/
+    color: var(--color-brand);
   }
 
   .title {
     text-decoration: none;
     border: 0;
+    height: 100px;
+    z-index: 1;
+  }
+  h2.title {
+    margin: 0;
   }
 
   .title span {
     font-weight: 400;
+  }
+
+  .back-title {
+    font-size: 100px;
+    font-weight: 800;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.25;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  main {
+    z-index: 1;
   }
 
   nav a {
@@ -64,11 +110,11 @@
 
   code {
     padding: 2px 5px;
-    background-color: #f2f2f2;
+    background-color: var(--color-background-alt);
   }
 
   pre code {
-    color: #222;
+    color: var(--color-body-text);
     display: block;
     padding: 20px;
     white-space: pre-wrap;
@@ -76,24 +122,24 @@
   }
 
   blockquote {
-    border-left: 1px solid #999;
-    color: #222;
+    border-left: 1px solid var(--color-brand);
+    color: var(--color-body-text);
     padding-left: 20px;
     font-style: italic;
   }
 
   footer {
-    padding: 25px;
-    text-align: center;
+    padding: 25px 0;
+    font-size: 12px;
   }
 
   .helptext {
-    color: #777;
+    color: var(--color-header-text);
     font-size: small;
   }
 
   .errorlist {
-    color: #eba613;
+    color: var(--color-header-text);
     font-size: small;
   }
 
@@ -112,51 +158,6 @@
   }
 
   ul.blog-posts li a:visited {
-    color: #8b6fcb;
+    color: var(--color-brand);
   }
-
-  @media (prefers-color-scheme: dark) {
-    body {
-      background-color: #333;
-      color: #ddd;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    b {
-      color: #eee;
-    }
-
-    a {
-      color: #8cc2dd;
-    }
-
-    code {
-      background-color: #777;
-    }
-
-    pre code {
-      color: #ddd;
-    }
-
-    blockquote {
-      color: #ccc;
-    }
-
-    textarea,
-    input {
-      background-color: #252525;
-      color: #ddd;
-    }
-
-    .helptext {
-      color: #aaa;
-    }
-  }
-
 </style>
